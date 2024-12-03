@@ -6,7 +6,7 @@ Deno.test({
   fn() {
     const input = Deno.readTextFileSync("input_test");
     const result = solve(input);
-    const answer = 2;
+    const answer = 161;
     assertEquals(result, answer);
   },
 });

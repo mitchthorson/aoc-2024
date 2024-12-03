@@ -1,17 +1,15 @@
-function parseInput(input: string): number[][] {
-  return input
-    .trim()
-    .split("\n")
-    .map((line) => line.split(" ").map(Number));
-}
-
 export function solve(input: string): number {
-  const reports = parseInput(input);
-  return 2;
+  const pattern = /mul\((\d{1,3}),(\d{1,3})\)/g;
+  const matches = Array.from(input.matchAll(pattern));
+  const result = matches
+    .map(([_, a, b, ...rest]) => {
+      return Number(a) * Number(b);
+    })
+    .reduce((acc, val) => acc + val, 0);
+  return result;
 }
 
 export function solveTwo(input: string): number {
-  const reports = parseInput(input);
   return 1;
 }
 
